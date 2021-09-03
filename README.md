@@ -72,11 +72,13 @@ After you have succesfully flashed the bootloader, you'll be able to repeatedly 
 
 1. Download the latest firmware from https://github.com/MarlinFirmware/Marlin/releases
 1. Download the correct config from https://github.com/MarlinFirmware/Configurations and override the `Configuration.h` and `Configuration_adv.h` with files for your printer
-1. You can modify the values as shown in this commit: https://github.com/Viq111/HemeraEnder3/commit/8336145 (make sure to set the correct driver for the board you are using)
+1. You can modify the values as shown in this commit: https://github.com/Viq111/HemeraEnder3/commit/fd97170 (make sure to set the correct driver for the board you are using, you can also look at the other commits)
 1. Use VS Code & PlatformIO to build (don't use Arduino IDE, that has been deprecated and is hard to get it working now)
 
 Now you should have a working Ender 3 with a Hemera hotend!
 
 ### Adding BLTouch
 
-*Coming soon* I was satisfied with the given stl for the BLTouch mount so I'm currently reworking it
+If you used the M206 to set your home previously, with the BLTouch you will need to actually (physically) modify your end stops as [M206 doesn't work for the BLTouch](https://github.com/MarlinFirmware/Marlin/issues/17158). Once you have set them, don't forget to reset your M206 to zero.
+
+On the software side, you will want to pick this [additional configuration](https://github.com/Viq111/HemeraEnder3/commit/ab540f3).
