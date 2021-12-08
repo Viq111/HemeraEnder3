@@ -3,7 +3,7 @@
 Hello! This repo should (hopefully) help you put an Hemera onto an Ender 3 Pro in the year 2021 in a breeze.
 I mostly created this because I was following [Hemera to Ender 3 - Complete guide](https://www.youtube.com/watch?v=oY1F7fUBHrc) but some information was outdated; hopefully this will help one or two people in the future.
 
-This is not meant to be a complete guide but a diff to the video [Hemera to Ender 3 - Complete guide](https://www.youtube.com/watch?v=oY1F7fUBHrc) so you should go watch it first and then come back here.
+This is not meant to be a complete guide but a diff to the [video above](https://www.youtube.com/watch?v=oY1F7fUBHrc) so you should go watch it first and then come back here.
 
 As a headsup, you can definitely do the installation in three steps: first the Hemera, second adding the part-cooling fan (I still had great success without a part cooling fan at first), third the BLTouch.
 
@@ -11,12 +11,13 @@ As a headsup, you can definitely do the installation in three steps: first the H
 
 Contrary to the video, I feel like the two part build is pretty heavy and make you loose a lot of space for no reason.
 I actually used the part from [E3D hemera Mount and cooler for Cr-10 and Ender 3 by Tragical](https://www.thingiverse.com/thing:4061250) which are much better and do not make you loose any build volume.
-I will provide a thingiverse link for a small remix that makes the BLTouch mount a bit better.
+You'll find bellow (quick links to the `stl` folder) some remixed versions.
 
 ### What you need to print:
-- `Mount_for_Hemera.stl` (I have a WIP remix to make the BLTouch mount nut slots a bit bigger so it's easy to use even with shrinking (at the end of the day, you don't need something snug))
-- `Duct_v3.stl` + `Mount_for_5015_fan.stl`
-- `Mount_for_Bltouch.stl` (I will completely change this one, it bumps into the Y axis motor without triggering the end switch - not great)
+- [`HemeraMount.stl` STL](https://github.com/Viq111/HemeraEnder3/blob/master/stl/HemeraMount.stl) ( remix to make the BLTouch mount nut slots a bit bigger so it's easy to use even with shrinking (at the end of the day, you don't need something snug))
+- [`PartFan.stl` STL](https://github.com/Viq111/HemeraEnder3/blob/master/stl/PartFan.stl) + [`PartFanArm.stl` STL](https://github.com/Viq111/HemeraEnder3/blob/master/stl/PartFanArm.stl)
+- [`BLTouchMount.stl` STL](https://github.com/Viq111/HemeraEnder3/blob/master/stl/BLTouchMount.stl) (completely changed from original to not bumps into the Y axis motor without triggering the end switch)
+You need to add a support enforcer when printing as show [here](https://github.com/Viq111/HemeraEnder3/blob/master/stl/BLTouchMountSupport.png)
 
 ### Additional hardware:
 
@@ -26,7 +27,12 @@ I will provide a thingiverse link for a small remix that makes the BLTouch mount
 
 **BLTouch mount:**
 - 4x M3 hex nuts
-- 4x M3x10mm (to be confirmed, working on it)
+- 4x M3x10mm
+
+### Final result:
+
+Once mounted it should look like this!
+![final](https://user-images.githubusercontent.com/2376565/145125535-84d526a7-b963-43ff-903a-35e7f96349a4.jpg)
 
 ## Vref calibration
 
@@ -64,7 +70,7 @@ I don't remember too much this step so I won't go too much into details. If you 
 
 Two things worth mentioning:
 - The `DC, D6, FD and FF` values are **correct** (opposite of what's in the BLTouch kit guide), this is because you are flashing the **bootloader and not the firmware**.
-- There is one step not mentioned is to select the correct microprocessor that's on your board
+- There is one step not mentioned in the guide: you need to select the correct microprocessor that is on your board
 
 After you have succesfully flashed the bootloader, you'll be able to repeatedly flash the firmware with an attached Octoprint (or similar) 
 
@@ -76,6 +82,7 @@ After you have succesfully flashed the bootloader, you'll be able to repeatedly 
 1. Use VS Code & PlatformIO to build (don't use Arduino IDE, that has been deprecated and is hard to get it working now)
 
 Now you should have a working Ender 3 with a Hemera hotend!
+A fully working copy of  Marlin is also available in the `Marlin` folder of this repository
 
 ### Adding BLTouch
 
